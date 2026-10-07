@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="MediCare Hospital Appointment and Medical Services Platform">
+  <title>MediCare | Hospital Appointment Platform</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <span>24/7 Patient Support</span>
+      <span>Emergency: <strong>112</strong></span>
+      <button class="top-link" data-action="open-contact">Contact Support</button>
+    </div>
+  </div>
+
+  <header class="header" id="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="MediCare home">
+        <span class="brand-mark" aria-hidden="true">✚</span>
+        <span><strong>MediCare</strong><small>Health • Care • Trust</small></span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+
+      <nav class="nav" id="mainNav">
+        <a href="#home">Home</a>
+        <a href="#hospitals">Hospitals</a>
+        <a href="#doctors">Doctors</a>
+        <a href="#services">Services</a>
+        <a href="#appointments">Appointments</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-small" data-action="open-login">Login</button>
+        <button class="btn btn-primary btn-small" data-action="book-appointment">Book Appointment</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">Trusted digital healthcare</span>
+          <h1>Healthcare that starts with <span>better access.</span></h1>
+          <p>Find hospitals, specialists and convenient appointment slots from one secure patient portal.</p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary btn-large" data-action="book-appointment">Book an Appointment <span>→</span></button>
+            <button class="btn btn-white btn-large" data-scroll="#doctors">Find a Doctor</button>
+          </div>
+
+          <div class="trust-row">
+            <div><strong>50+</strong><span>Specialists</span></div>
+            <div><strong>12</strong><span>Hospitals</span></div>
+            <div><strong>24/7</strong><span>Support</span></div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-card">
+            <div class="hero-card-top">
+              <span class="status-dot">●</span>
+              <span>Next available appointment</span>
+              <span class="live-badge">LIVE</span>
+            </div>
+            <div class="doctor-preview">
+              <div class="doctor-avatar">DR</div>
+              <div>
+                <h3>Dr. Rahul Sharma</h3>
+                <p>Senior Cardiologist</p>
+                <span class="rating">★ 4.9 <small>• 12 years experience</small></span>
+              </div>
+            </div>
+            <div class="slot-grid">
+              <button class="slot" data-action="quick-book" data-doctor="Dr. Rahul Sharma" data-time="10:00 AM">10:00 AM</button>
+              <button class="slot" data-action="quick-book" data-doctor="Dr. Rahul Sharma" data-time="11:30 AM">11:30 AM</button>
+              <button class="slot" data-action="quick-book" data-doctor="Dr. Rahul Sharma" data-time="02:30 PM">02:30 PM</button>
+            </div>
+            <button class="btn btn-primary full" data-action="quick-book" data-doctor="Dr. Rahul Sharma" data-time="10:00 AM">Book this doctor</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container search-panel">
+        <div class="search-label">What are you looking for?</div>
+        <div class="search-row">
+          <div class="search-field"><span>⌕</span><input id="globalSearch" type="search" placeholder="Doctor, specialty or hospital"></div>
+          <select id="searchDepartment">
+            <option value="">All specialties</option>
+            <option>Cardiology</option>
+            <option>Neurology</option>
+            <option>Orthopedics</option>
+            <option>Pediatrics</option>
+            <option>Dermatology</option>
+            <option>General Medicine</option>
+          </select>
+          <button class="btn btn-primary" data-action="run-search">Search</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="quick-services section" id="services">
+      <div class="container">
+        <div class="section-heading centered">
+          <span class="eyebrow">Care when you need it</span>
+          <h2>Everything you need in one place</h2>
+          <p>Simple digital access to everyday hospital and medical services.</p>
+        </div>
+        <div class="service-grid">
+          <button class="service-card" data-action="service" data-service="Book OPD Appointment"><span class="service-icon">📅</span><strong>OPD Appointment</strong><small>Choose a doctor and time slot</small></button>
+          <button class="service-card" data-action="service" data-service="Find a Hospital"><span class="service-icon">🏥</span><strong>Find a Hospital</strong><small>Explore nearby healthcare facilities</small></button>
+          <button class="service-card" data-action="service" data-service="Laboratory Tests"><span class="service-icon">🧪</span><strong>Lab Tests</strong><small>View common diagnostic services</small></button>
+          <button class="service-card" data-action="service" data-service="Blood Bank"><span class="service-icon">🩸</span><strong>Blood Bank</strong><small>Check blood-group availability</small></button>
+          <button class="service-card" data-action="service" data-service="Teleconsultation"><span class="service-icon">💻</span><strong>Teleconsultation</strong><small>Connect with specialists online</small></button>
+          <button class="service-card" data-action="service" data-service="Health Records"><span class="service-icon">📋</span><strong>Health Records</strong><small>Keep your appointment details together</small></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="doctors">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Meet our specialists</span>
+            <h2>Find the right doctor</h2>
+            <p>Browse specialists and select a convenient appointment slot.</p>
+          </div>
+          <button class="btn btn-outline" data-action="show-all-doctors">View all doctors →</button>
+        </div>
+
+        <div class="filter-row">
+          <button class="filter active" data-filter="all">All</button>
+          <button class="filter" data-filter="Cardiology">Cardiology</button>
+          <button class="filter" data-filter="Neurology">Neurology</button>
+          <button class="filter" data-filter="Orthopedics">Orthopedics</button>
+          <button class="filter" data-filter="Pediatrics">Pediatrics</button>
+        </div>
+        <div class="doctor-grid" id="doctorGrid"></div>
+        <div class="empty-state hidden" id="doctorEmpty">No doctors match your search. Try another specialty.</div>
+      </div>
+    </section>
+
+    <section class="section" id="hospitals">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">Healthcare facilities</span>
+            <h2>Hospitals you can trust</h2>
+            <p>Explore facilities, specialties and appointment availability.</p>
+          </div>
+          <button class="btn btn-outline" data-action="show-all-hospitals">View all hospitals →</button>
+        </div>
+        <div class="hospital-grid" id="hospitalGrid"></div>
+      </div>
+    </section>
+
+    <section class="section light-section" id="appointments">
+      <div class="container appointment-section">
+        <div>
+          <span class="eyebrow">Your care journey</span>
+          <h2>Manage appointments without the queue.</h2>
+          <p>Book, review or cancel your appointments from a simple patient dashboard. Your latest booking is stored locally in this demo until the backend is connected.</p>
+          <div class="feature-list">
+            <div><span>✓</span> Instant appointment confirmation</div>
+            <div><span>✓</span> Doctor and hospital details in one view</div>
+            <div><span>✓</span> Easy cancellation and rescheduling</div>
+          </div>
+          <div class="hero-actions">
+            <button class="btn btn-primary" data-action="open-dashboard">Open Patient Dashboard</button>
+            <button class="btn btn-outline" data-action="book-appointment">Book another appointment</button>
+          </div>
+        </div>
+        <div class="appointment-card">
+          <span class="card-label">My latest appointment</span>
+          <div id="latestAppointment">
+            <div class="no-appointment">
+              <span>📅</span>
+              <strong>No appointment booked yet</strong>
+              <p>Your confirmed appointment will appear here.</p>
+              <button class="btn btn-primary btn-small" data-action="book-appointment">Book now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container cta-inner">
+        <div><span class="eyebrow">Need assistance?</span><h2>Our patient support team is here for you.</h2><p>Get help with appointments, hospital information and portal access.</p></div>
+        <button class="btn btn-white btn-large" data-action="open-contact">Contact Support →</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <a class="brand footer-brand" href="#home"><span class="brand-mark">✚</span><span><strong>MediCare</strong><small>Health • Care • Trust</small></span></a>
+        <p>A professional demo healthcare portal built for the AWS DevSecOps GitOps project.</p>
+      </div>
+      <div><h4>Platform</h4><a href="#doctors">Find a Doctor</a><a href="#hospitals">Hospitals</a><a href="#services">Medical Services</a><a href="#appointments">Appointments</a></div>
+      <div><h4>Patient</h4><button data-action="open-dashboard">Dashboard</button><button data-action="open-login">Login / Register</button><button data-action="open-contact">Support</button></div>
+      <div><h4>Important</h4><button data-action="legal" data-title="Privacy Policy">Privacy Policy</button><button data-action="legal" data-title="Terms of Use">Terms of Use</button><button data-action="legal" data-title="Medical Disclaimer">Medical Disclaimer</button></div>
+    </div>
+    <div class="container footer-bottom"><span>© 2026 MediCare. Demo project.</span><span>Built for cloud-native healthcare engineering.</span></div>
+  </footer>
+
+  <!-- Appointment Modal -->
+  <div class="modal" id="appointmentModal" aria-hidden="true">
+    <div class="modal-backdrop" data-action="close-modal"></div>
+    <div class="modal-dialog booking-dialog">
+      <button class="modal-close" data-action="close-modal" aria-label="Close">×</button>
+      <div class="modal-header"><span class="eyebrow">Appointment booking</span><h2>Book your appointment</h2><p>Complete the steps below to confirm your visit.</p></div>
+      <div class="progress"><span class="progress-step active">1</span><i></i><span class="progress-step">2</span><i></i><span class="progress-step">3</span></div>
+
+      <form id="bookingForm">
+        <div class="booking-step active" data-step="1">
+          <label>Hospital<select id="bookingHospital" required></select></label>
+          <label>Department<select id="bookingDepartment" required><option value="">Select department</option><option>Cardiology</option><option>Neurology</option><option>Orthopedics</option><option>Pediatrics</option><option>Dermatology</option><option>General Medicine</option></select></label>
+          <label>Doctor<select id="bookingDoctor" required></select></label>
+          <button type="button" class="btn btn-primary full" data-action="next-step">Continue to date & time →</button>
+        </div>
+
+        <div class="booking-step" data-step="2">
+          <div class="two-col">
+            <label>Date<input id="bookingDate" type="date" required></label>
+            <label>Time<select id="bookingTime" required><option value="">Select time</option><option>09:00 AM</option><option>10:00 AM</option><option>11:30 AM</option><option>01:00 PM</option><option>02:30 PM</option><option>04:00 PM</option></select></label>
+          </div>
+          <div class="slot-note">Available slots are demonstration data. Your backend can replace these with real-time availability.</div>
+          <div class="step-actions"><button type="button" class="btn btn-outline" data-action="prev-step">← Back</button><button type="button" class="btn btn-primary" data-action="next-step">Continue →</button></div>
+        </div>
+
+        <div class="booking-step" data-step="3">
+          <div class="summary-box" id="bookingSummary"></div>
+          <div class="two-col">
+            <label>Patient name<input id="patientName" type="text" placeholder="Enter full name" required></label>
+            <label>Mobile number<input id="patientPhone" type="tel" placeholder="10-digit mobile number" pattern="[0-9]{10}" required></label>
+          </div>
+          <label>Reason for visit<textarea id="visitReason" rows="3" placeholder="Briefly describe the reason for your visit"></textarea></label>
+          <div class="step-actions"><button type="button" class="btn btn-outline" data-action="prev-step">← Back</button><button type="submit" class="btn btn-primary">Confirm Appointment ✓</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Generic Modal -->
+  <div class="modal" id="genericModal" aria-hidden="true">
+    <div class="modal-backdrop" data-action="close-modal"></div>
+    <div class="modal-dialog">
+      <button class="modal-close" data-action="close-modal">×</button>
+      <div id="genericContent"></div>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
