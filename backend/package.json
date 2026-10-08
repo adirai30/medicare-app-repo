@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --check server.js && node --check routes/appointments.js && node --check routes/doctors.js && node --check routes/hospitals.js && node --check routes/patients.js"
   },
   "keywords": [],
   "author": "",
