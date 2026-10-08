@@ -99,3 +99,55 @@ jobs:
         run: |
           docker push \
             ${{ steps.login-ecr.outputs.registry }}/medicare-frontend:${{ github.sha }}
+
+  update-gitops:
+    name: Update GitOps Repository
+    runs-on: ubuntu-latest
+    needs:
+      - build-and-push
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+
+    steps:
+      - name: Checkout GitOps repository
+        uses: actions/checkout@v4
+        with:
+          repository: adirai30/medicare-gitops-repo
+          token: ${{ secrets.GITOPS_TOKEN }}
+          ref: main
+          path: gitops-repo
+
+      - name: Update backend image tag
+        working-directory: gitops-repo
+        run: |
+          sed -i "s#medicare-backend:[^[:space:]]*#medicare-backend:${{ github.sha }}#" environments/development/backend-deploy.yaml
+
+      - name: Update frontend image tag
+        working-directory: gitops-repo
+        run: |
+          sed -i "s#medicare-frontend:[^[:space:]]*#medicare-frontend:${{ github.sha }}#" environments/development/frontend-deploy.yaml
+
+      - name: Verify GitOps image tags
+        working-directory: gitops-repo
+        run: |
+          echo "Backend image:"
+          grep "image:" environments/development/backend-deploy.yaml
+
+          echo "Frontend image:"
+          grep "image:" environments/development/frontend-deploy.yaml
+
+      - name: Commit and push GitOps changes
+        working-directory: gitops-repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add environments/development/backend-deploy.yaml
+          git add environments/development/frontend-deploy.yaml
+
+          if git diff --cached --quiet; then
+            echo "No GitOps changes detected."
+            exit 0
+          fi
+
+          git commit -m "gitops: update MediCare images to ${{ github.sha }}"
+          git push origin main
