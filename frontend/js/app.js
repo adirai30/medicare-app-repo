@@ -1,4 +1,4 @@
-const API_BASE_URL = "http://localhost:5000/api";
+const API_BASE_URL = "/api";
 
 const doctors = [
   {id:1,name:"Dr. Rahul Sharma",specialty:"Cardiology",experience:"12 years",rating:"4.9",hospital:"MediCare City Hospital",initials:"RS"},
